@@ -1,1 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pássaros Furiosos!</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
 
+  <!-- ═══════════════════ TELA INICIAL ═══════════════════ -->
+  <div id="screen-intro" class="screen active">
+    <div class="intro-bg">
+      <div class="cloud cloud-1"></div>
+      <div class="cloud cloud-2"></div>
+      <div class="cloud cloud-3"></div>
+    </div>
+    <div class="intro-content">
+      <h1 class="game-title">
+        <span class="title-bird">🐦</span>
+        <span class="title-text">Pássaros<br>Furiosos!</span>
+        <span class="title-pig">🐷</span>
+      </h1>
+      <p class="subtitle">Derrote os porcos malvados com seus pássaros!</p>
+
+      <div class="level-select">
+        <h2>Selecione a Fase</h2>
+        <div class="level-buttons">
+          <button class="level-btn" data-level="1" id="btn-level-1">
+            <span class="level-num">1</span>
+            <div class="level-stars" id="stars-1"></div>
+            <span class="level-name">Fazenda</span>
+          </button>
+          <button class="level-btn" data-level="2" id="btn-level-2">
+            <span class="level-num">2</span>
+            <div class="level-stars" id="stars-2"></div>
+            <span class="level-name">Floresta</span>
+          </button>
+          <button class="level-btn" data-level="3" id="btn-level-3">
+            <span class="level-num">3</span>
+            <div class="level-stars" id="stars-3"></div>
+            <span class="level-name">Fortaleza</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="bird-legend">
+        <div class="legend-item"><span class="bird-icon red-b">🐦</span> Comum</div>
+        <div class="legend-item"><span class="bird-icon yellow-b">⚡</span> Veloz</div>
+        <div class="legend-item"><span class="bird-icon black-b">💣</span> Explosivo</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ TELA DO JOGO ═══════════════════ -->
+  <div id="screen-game" class="screen">
+    <div id="hud">
+      <div class="hud-left">
+        <button id="btn-back" class="hud-btn" title="Menu">🏠</button>
+        <button id="btn-restart" class="hud-btn" title="Reiniciar">🔄</button>
+      </div>
+      <div class="hud-center">
+        <div class="hud-info">
+          <span class="hud-label">FASE</span>
+          <span id="hud-level" class="hud-value">1</span>
+        </div>
+        <div class="hud-info">
+          <span class="hud-label">PONTOS</span>
+          <span id="hud-score" class="hud-value">0</span>
+        </div>
+      </div>
+      <div class="hud-right">
+        <div class="bird-queue" id="bird-queue"></div>
+      </div>
+    </div>
+
+    <canvas id="game-canvas"></canvas>
+
+    <div id="aim-hint">🖱️ Clique e arraste o pássaro para lançar!</div>
+  </div>
+
+  <!-- ═══════════════════ TELA DE VITÓRIA ═══════════════════ -->
+  <div id="screen-win" class="screen">
+    <div class="result-card win-card">
+      <div class="result-emoji">🎉</div>
+      <h2>Fase Completa!</h2>
+      <div class="star-display" id="win-stars"></div>
+      <div class="score-display">
+        <span class="score-label">Pontuação</span>
+        <span class="score-value" id="win-score">0</span>
+      </div>
+      <div class="score-breakdown" id="win-breakdown"></div>
+      <div class="result-buttons">
+        <button class="game-btn secondary" id="btn-win-replay">🔄 Repetir</button>
+        <button class="game-btn primary" id="btn-win-next">Próxima ▶</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════ TELA DE DERROTA ═══════════════════ -->
+  <div id="screen-lose" class="screen">
+    <div class="result-card lose-card">
+      <div class="result-emoji">😢</div>
+      <h2>Tentativa Falhou!</h2>
+      <p class="lose-msg">Os porcos escaparam desta vez...</p>
+      <div class="score-display">
+        <span class="score-label">Pontuação</span>
+        <span class="score-value" id="lose-score">0</span>
+      </div>
+      <div class="result-buttons">
+        <button class="game-btn secondary" id="btn-lose-menu">🏠 Menu</button>
+        <button class="game-btn primary" id="btn-lose-retry">🔄 Tentar Novamente</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
